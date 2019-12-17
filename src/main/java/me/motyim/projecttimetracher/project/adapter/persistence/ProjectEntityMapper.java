@@ -6,6 +6,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Component
@@ -13,7 +14,7 @@ class ProjectEntityMapper {
 
     ProjectEntity toEntity(Project domainObject) {
         return ProjectEntity.builder()
-                .id(domainObject.getId().getValue())
+                .id(Optional.ofNullable(domainObject.getId()).map(ProjectId::getValue).orElse(0L))
                 .name(domainObject.getName())
                 .status(domainObject.getStatus())
                 .build();

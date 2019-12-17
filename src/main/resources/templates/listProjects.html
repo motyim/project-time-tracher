@@ -7,14 +7,18 @@
     <tr>
         <th>Number</th>
         <th>Name</th>
+        <th>Status</th>
     </tr>
     </thead>
     <tbody>
     <tr th:each="project : ${projects}">
         <td th:text="${project.id}"></td>
         <td th:text="${project.name}"></td>
+        <td th:text="${project.status}"></td>
     </tr>
     </tbody>
 </table>
+
+<a th:href="@{/projects/create}">Create new Project</a>
 
 </html>

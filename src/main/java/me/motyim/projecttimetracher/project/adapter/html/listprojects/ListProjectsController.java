@@ -1,4 +1,4 @@
-package me.motyim.projecttimetracher.project.adapter.html;
+package me.motyim.projecttimetracher.project.adapter.html.listprojects;
 
 import lombok.AllArgsConstructor;
 import me.motyim.projecttimetracher.project.domain.entity.Project;
@@ -11,17 +11,17 @@ import java.util.List;
 
 @Controller
 @AllArgsConstructor
-public class ListProjectsController {
+class ListProjectsController {
 
     private final ListProjectsUseCase listProjectsUseCase;
 
-    private final ProjectModelMapper projectModelMapper;
+    private final ListProjectModelMapper listProjectModelMapper;
 
     @GetMapping("/projects/list")
-    public String displayProjectsList(Model model){
+    String displayProjectsList(Model model){
         List<Project> projects = listProjectsUseCase.listProjects();
-        List<ProjectModel> projectModels = projectModelMapper.toModels(projects);
-        model.addAttribute("projects",projectModels);
+        List<ListProjectModel> listProjectModels = listProjectModelMapper.toModels(projects);
+        model.addAttribute("projects", listProjectModels);
         return "listProjects.html";
     }
 

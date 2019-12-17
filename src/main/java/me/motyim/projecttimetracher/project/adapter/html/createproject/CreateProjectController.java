@@ -1,7 +1,6 @@
-package me.motyim.projecttimetracher.project.adapter.html;
+package me.motyim.projecttimetracher.project.adapter.html.createproject;
 
 import lombok.AllArgsConstructor;
-import me.motyim.projecttimetracher.project.domain.entity.Project;
 import me.motyim.projecttimetracher.project.domain.usecase.createproject.CreateProjectUseCase;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,22 +12,19 @@ import javax.validation.Valid;
 
 @Controller
 @AllArgsConstructor
-public class CreateProjectController {
+class CreateProjectController {
 
     private final CreateProjectUseCase  createProjectUseCase;
 
-    private final ProjectModelMapper projectModelMapper;
-
     @GetMapping("/projects/create")
-    public String displayCreateProjectForm(Model model){
-        model.addAttribute("project",new ProjectModel());
+    String displayCreateProjectForm(Model model){
+        model.addAttribute("project",new CreateProjectModel());
         return "createProject.html";
     }
 
     @PostMapping("/projects")
-    public String createProject(@Valid @ModelAttribute("project") ProjectModel projectModel, Model model){
-        Project project = projectModelMapper.toDomainObject(projectModel);
-        createProjectUseCase.createProject(project);
+    public String createProject(@Valid @ModelAttribute("project") CreateProjectModel createProjectModel, Model model){
+        createProjectUseCase.createProject(createProjectModel.getName());
         return "redirect:/projects/list";
     }
 }

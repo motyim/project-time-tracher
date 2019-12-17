@@ -1,4 +1,4 @@
-package me.motyim.projecttimetracher.project.adapter.html;
+package me.motyim.projecttimetracher.project.adapter.html.createproject;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -7,9 +7,8 @@ import lombok.NoArgsConstructor;
 
 @Data
 @Builder
-@AllArgsConstructor
 @NoArgsConstructor
-public class ProjectModel {
-    private Long id ;
+@AllArgsConstructor
+class CreateProjectModel {
     private String name;
 }

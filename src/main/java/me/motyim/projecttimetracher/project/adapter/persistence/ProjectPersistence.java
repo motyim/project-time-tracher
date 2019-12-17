@@ -10,7 +10,7 @@ import java.util.List;
 
 @AllArgsConstructor
 @Service
-public class ProjectPersistence implements CreateProjectPort, ListProjectsPort {
+class ProjectPersistence implements CreateProjectPort, ListProjectsPort {
 
     private final ProjectRepository projectRepository;
 

@@ -9,5 +9,5 @@ public class Project {
 
     private ProjectId id;
     private String name;
-
+    private ProjectStatus status;
 }

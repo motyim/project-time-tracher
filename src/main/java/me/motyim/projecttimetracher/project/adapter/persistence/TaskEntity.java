@@ -12,7 +12,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 @Builder
 @Entity
-public class TaskEntity {
+class TaskEntity {
     @Id
     @GeneratedValue
     private Long id;

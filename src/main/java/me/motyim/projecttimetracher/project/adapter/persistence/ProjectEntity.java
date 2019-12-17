@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import me.motyim.projecttimetracher.project.domain.entity.ProjectStatus;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -15,11 +16,14 @@ import javax.persistence.Id;
 @NoArgsConstructor
 @Builder
 @Entity
-public class ProjectEntity {
+class ProjectEntity {
 
     @Id
     @GeneratedValue
     private Long id;
     @Column
     private String name;
+
+    @Column
+    private ProjectStatus status;
 }

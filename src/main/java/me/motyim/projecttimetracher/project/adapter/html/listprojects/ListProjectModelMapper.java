@@ -10,12 +10,6 @@ import java.util.stream.Collectors;
 
 @Component
 public class ListProjectModelMapper {
-    public Project toDomainObject(ListProjectModel listProjectModel) {
-        return Project.builder()
-                .id(ProjectId.of(listProjectModel.getId()))
-                .name(listProjectModel.getName())
-                .build();
-    }
 
     public List<ListProjectModel> toModels(List<Project> projects) {
         return projects.stream()
@@ -27,6 +21,7 @@ public class ListProjectModelMapper {
         return ListProjectModel.builder()
                 .id(project.getId().getValue())
                 .name(project.getName())
+                .status(project.getStatus())
                 .build();
     }
 }
